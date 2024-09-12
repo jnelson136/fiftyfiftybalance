@@ -1,0 +1,40 @@
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+#totalClicks {
+    background-color: #7EACB5; /* Bamboo green color */
+    color: white; /* Ensure the text is visible against the background */
+    padding: 10px; /* Add some padding for better visibility */
+    border-radius: 5px; /* Optional: Rounded corners */
+    font-size: 1.2em; /* Optional: Larger font size for better readability */
+}
+
+body, html {
+    font-family: "Lora";
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #7EACB5; /* For dark background */
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: #343131;
+    text-align: center;
+    /* Other styling for your content */
+}
+
+.progress-bar-bamboo {
+    background-color: #9BBA9D; /* Bamboo green */
+}
+
+.buttons-bamboo {
+    background-color: #9BBA9D;
+}
