@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/7c8ed1be-4e9d-46d2-aab0-c9117d3565c6/resourceGroups/fiftyfiftybalance_group/providers/Microsoft.Web/sites/fiftyfiftybalance",
+    "appService.deploySubpath": "bin\\Release\\net8.0\\publish"
+}

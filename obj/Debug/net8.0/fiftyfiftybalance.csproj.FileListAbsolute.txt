@@ -45,3 +45,5 @@ C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\obj\Debug\net8.0\refint\fiftyf
 C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\obj\Debug\net8.0\fiftyfiftybalance.pdb
 C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\obj\Debug\net8.0\fiftyfiftybalance.genruntimeconfig.cache
 C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\obj\Debug\net8.0\ref\fiftyfiftybalance.dll
+C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\bin\Debug\net8.0\clickCounts.json
+C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\obj\Debug\net8.0\fiftyfiftybalance.sourcelink.json
