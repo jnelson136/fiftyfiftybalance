@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\nelso\\OneDrive\\Desktop\\fiftyfiftybalance\\wwwroot\\feather.png",
+      "PackagePath": "staticwebassets\\feather.png"
+    },
+    {
       "Id": "C:\\Users\\nelso\\OneDrive\\Desktop\\fiftyfiftybalance\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },

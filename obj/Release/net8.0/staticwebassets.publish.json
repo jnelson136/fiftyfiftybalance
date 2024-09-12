@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "obSRx83TRnIshPq3elFGB0ufMjWhhHVIyAvvPswLz20=",
+  "Hash": "KYMgoHIYti95Pbfpmqepx7Uumfzk4xw+o4K0T76+Cfc=",
   "Source": "fiftyfiftybalance",
   "BasePath": "_content/fiftyfiftybalance",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\nelso\\OneDrive\\Desktop\\fiftyfiftybalance\\wwwroot\\feather.png",
+      "SourceId": "fiftyfiftybalance",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nelso\\OneDrive\\Desktop\\fiftyfiftybalance\\wwwroot\\",
+      "BasePath": "_content/fiftyfiftybalance",
+      "RelativePath": "feather.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\feather.png"
+    },
     {
       "Identity": "C:\\Users\\nelso\\OneDrive\\Desktop\\fiftyfiftybalance\\wwwroot\\index.html",
       "SourceId": "fiftyfiftybalance",
