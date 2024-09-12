@@ -17,8 +17,8 @@ public class Program
                 builder.AllowAnyMethod()
                        .AllowAnyHeader()
                        .AllowCredentials()
-                       .SetIsOriginAllowed((host) => true);
-                    //    .WithOrigins("http://localhost:5138"); // Update with your client origin if needed
+                       .SetIsOriginAllowed((host) => true)
+                       .WithOrigins("https://fiftyfiftybalance-hpejhuf2h3gjbhba.westus-01.azurewebsites.net");
             });
         });
 

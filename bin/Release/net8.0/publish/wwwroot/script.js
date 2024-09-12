@@ -106,7 +106,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 "value": "#9BBA9D"
             },
             "shape": {
-                "type": "circle"
+                "type": "image",
+                "image": [
+                    {
+                        "src": "feather.png",
+                        "width": 50,
+                        "height": 50
+                    }
+                ]
             },
             "opacity": {
                 "value": 0.5
