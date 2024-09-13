@@ -103,16 +103,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 "value": 80
             },
             "color": {
-                "value": "#9BBA9D"
+                "value": "#9BBA9D" // This will be ignored when using images
             },
             "shape": {
-                "type": "circle"
+                "type": "image",
+                "image": {
+                    "src": "birds.png", // Update this path to where your image is located
+                    "width": 200, // Adjust width as needed
+                    "height": 200 // Adjust height as needed
+                }
             },
             "opacity": {
                 "value": 0.5
             },
             "size": {
-                "value": 3
+                "value": 40 // Adjust size as needed, the image will be scaled to this size
             },
             "move": {
                 "enable": true,
@@ -122,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "retina_detect": true
     });
 });
+
 
 // document.addEventListener('click', (event) => {
 //     // Update the total click count for all clicks, including those outside buttons
