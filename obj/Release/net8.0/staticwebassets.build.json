@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "C5DqooWcnnnGroz8BumkOmCv7IdS5Fe5scXX24jOOXQ=",
+  "Hash": "fIuNhfG1LRUoy2czkI3rK/MEkZ7F5k5wASkYhSqfiqM=",
   "Source": "fiftyfiftybalance",
   "BasePath": "_content/fiftyfiftybalance",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\nelso\\OneDrive\\Desktop\\fiftyfiftybalance\\wwwroot\\birds.png",
+      "SourceId": "fiftyfiftybalance",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nelso\\OneDrive\\Desktop\\fiftyfiftybalance\\wwwroot\\",
+      "BasePath": "_content/fiftyfiftybalance",
+      "RelativePath": "birds.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\birds.png"
+    },
     {
       "Identity": "C:\\Users\\nelso\\OneDrive\\Desktop\\fiftyfiftybalance\\wwwroot\\feather.png",
       "SourceId": "fiftyfiftybalance",
