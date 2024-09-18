@@ -1,6 +1,18 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\nelso\\OneDrive\\Desktop\\fiftyfiftybalance\\wwwroot\\bee.png",
+      "PackagePath": "staticwebassets\\bee.png"
+    },
+    {
+      "Id": "C:\\Users\\nelso\\OneDrive\\Desktop\\fiftyfiftybalance\\wwwroot\\birds.png",
+      "PackagePath": "staticwebassets\\birds.png"
+    },
+    {
+      "Id": "C:\\Users\\nelso\\OneDrive\\Desktop\\fiftyfiftybalance\\wwwroot\\feather.png",
+      "PackagePath": "staticwebassets\\feather.png"
+    },
+    {
       "Id": "C:\\Users\\nelso\\OneDrive\\Desktop\\fiftyfiftybalance\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },

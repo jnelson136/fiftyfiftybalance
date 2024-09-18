@@ -157,10 +157,10 @@ function checkBalance() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    updateParticles('bee');
-    currentImageType = 'bee';
-})
+document.addEventListener('DOMContentLoaded', async () => {
+    await updateCounters();
+    checkBalance();
+});
 
 document.getElementById('buttonA').addEventListener('click', () => {
     checkBalance();

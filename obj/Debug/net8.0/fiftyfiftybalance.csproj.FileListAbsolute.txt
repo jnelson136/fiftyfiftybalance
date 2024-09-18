@@ -1,5 +1,6 @@
 C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\bin\Debug\net8.0\appsettings.json
+C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\bin\Debug\net8.0\clickCounts.json
 C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\bin\Debug\net8.0\fiftyfiftybalance.staticwebassets.runtime.json
 C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\bin\Debug\net8.0\fiftyfiftybalance.exe
 C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\bin\Debug\net8.0\fiftyfiftybalance.deps.json
@@ -31,6 +32,7 @@ C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\obj\Debug\net8.0\fiftyfiftybal
 C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\obj\Debug\net8.0\fiftyfiftybalance.csproj.CoreCompileInputs.cache
 C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\obj\Debug\net8.0\fiftyfiftybalance.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\obj\Debug\net8.0\fiftyfiftybalance.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\obj\Debug\net8.0\fiftyfiftybalance.sourcelink.json
 C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\obj\Debug\net8.0\staticwebassets\msbuild.fiftyfiftybalance.Microsoft.AspNetCore.StaticWebAssets.props
@@ -45,5 +47,3 @@ C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\obj\Debug\net8.0\refint\fiftyf
 C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\obj\Debug\net8.0\fiftyfiftybalance.pdb
 C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\obj\Debug\net8.0\fiftyfiftybalance.genruntimeconfig.cache
 C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\obj\Debug\net8.0\ref\fiftyfiftybalance.dll
-C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\bin\Debug\net8.0\clickCounts.json
-C:\Users\nelso\OneDrive\Desktop\fiftyfiftybalance\obj\Debug\net8.0\fiftyfiftybalance.sourcelink.json

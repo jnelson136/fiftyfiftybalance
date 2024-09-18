@@ -32,7 +32,7 @@ connection.on("RecieveClickCounts", (counts) => {
 function startTimer() {
     intervalId = setInterval(() => {
         timer++;
-        timerDisplay.innerText = new Date(timer * 1000).toISOString().substring(11,19);
+        timerDisplay.innerText = new Date(timer * 1000).toISOString().substring(11, 19);
     }, 1000);
 }
 
@@ -71,7 +71,7 @@ async function updateCounters() {
 }
 
 document.getElementById('buttonA').addEventListener('click', async () => {
-    await fetch('https://fiftyfiftybalance-hpejhuf2h3gjbhba.westus-01.azurewebsites.net/api/click/clickA', { method: 'POST'});
+    await fetch('https://fiftyfiftybalance-hpejhuf2h3gjbhba.westus-01.azurewebsites.net/api/click/clickA', { method: 'POST' });
     updateCounters();
 });
 
@@ -92,11 +92,30 @@ function updateBalanceProgress() {
 }
 
 document.getElementById('buttonB').addEventListener('click', async () => {
-    await fetch('https://fiftyfiftybalance-hpejhuf2h3gjbhba.westus-01.azurewebsites.net/api/click/clickB', { method: 'POST'});
+    await fetch('https://fiftyfiftybalance-hpejhuf2h3gjbhba.westus-01.azurewebsites.net/api/click/clickB', { method: 'POST' });
     updateCounters();
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+let currentImageType = null;
+
+function updateParticles(particleType) {
+    let imageSrc;
+
+    switch (particleType) {
+        // case 'feather':
+        //     imageSrc = 'feather.png';
+        //     break;
+        case 'bird':
+            imageSrc = 'birds.png';
+            break;
+        case 'bee':
+            imageSrc = 'bee.png';
+            break;
+        default:
+            imageSrc = 'bee.png';
+            break;
+    }
+
     particlesJS('particles-js', {
         "particles": {
             "number": {
@@ -108,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "shape": {
                 "type": "image",
                 "image": {
-                    "src": "birds.png", // Update this path to where your image is located
+                    "src": imageSrc, // Update this path to where your image is located
                     "width": 200, // Adjust width as needed
                     "height": 200 // Adjust height as needed
                 }
@@ -126,6 +145,31 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         "retina_detect": true
     });
+}
+
+function checkBalance() {
+    if (countA > countB - 1 && currentImageType !== 'bird') {
+        updateParticles('bird');
+        currentImageType = 'bird';
+    } else if (countB > countA - 1 && currentImageType !== 'bee') {
+        updateParticles('bee');
+        currentImageType = 'bee;'
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateParticles('bee');
+    currentImageType = 'bee';
+})
+
+document.getElementById('buttonA').addEventListener('click', () => {
+    checkBalance();
+    updateCounters();
+});
+
+document.getElementById('buttonB').addEventListener('click', () => {
+    checkBalance();
+    updateCounters();
 });
 
 
