@@ -21,6 +21,7 @@ body, html {
     padding: 0;
     overflow: hidden;
     background-color: #7EACB5; /* For dark background */
+    user-select: none;
 }
 
 .content {

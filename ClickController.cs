@@ -10,7 +10,7 @@ public class ClickController : ControllerBase
     [HttpPost("increment-alltimeclicks")]
     public IActionResult IncrementAllTimeClicks()
     {
-        _clickCounts.AllTimeClicks += 1;
+        _clickCounts.AllTimeClicks += (_clickCounts.CountA + _clickCounts.CountB + 1);
         _clickCounts.SaveToFile();
         return Ok(_clickCounts);
     }
@@ -37,7 +37,7 @@ public class ClickController : ControllerBase
     public IActionResult GetClickCounts()
     {
         var timerValue = (_clickCounts.CountA == _clickCounts.CountB) ? _clickCounts.GetElapsedTime() : _clickCounts.LastElapsedTime;
-        return Ok(new { _clickCounts.CountA, _clickCounts.CountB, timerValue });
+        return Ok(new { _clickCounts.CountA, _clickCounts.CountB, timerValue, AllTimeClicks = _clickCounts.AllTimeClicks });
     }
 
     private void CheckAndStartTimer()

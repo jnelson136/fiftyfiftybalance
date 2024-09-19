@@ -24,6 +24,7 @@ connection.start().catch(err => console.error(err.toString()));
 connection.on("RecieveClickCounts", (counts) => {
     countA = counts.CountA;
     countB = counts.CountB;
+    allTimeClicks = counts.AllTimeClicks;
     updateCounters(); // Update the UI with the new counts
 });
 
@@ -41,27 +42,26 @@ function stopTimer() {
     intervalId = null;
 }
 
-function updateTotalClicks() {
-    document.getElementById('allTimeCount').innerText = totalClicks;
-}
 
 async function updateCounters() {
     let response = await fetch('https://fiftyfiftybalance-hpejhuf2h3gjbhba.westus-01.azurewebsites.net/api/click');
     let data = await response.json();
 
+    console.log(data);
+
     countA = data.countA;
     countB = data.countB;
     timer = data.timerValue
-
-    totalClicks = countA + countB;
+    aTimeClicks = data.allTimeClicks;
 
     counterA.innerText = data.countA;
     counterB.innerText = data.countB;
-    totalClickCount.innerText = totalClicks;
 
-    allTimeCount.innerText = data.allTimeClicks;
+    updateTotalClicks();
 
     updateBalanceProgress();
+
+    updateMessage();
 
     if (data.countA === data.countB) {
         if (!intervalId) startTimer();
@@ -72,9 +72,28 @@ async function updateCounters() {
     timerDisplay.innerText = new Date(timer * 1000).toISOString().substring(11, 19);
 }
 
+function updateMessage() {
+    const messageElement = document.getElementById('message');
+
+    if (countA > countB) {
+        messageElement.innerText = "MAKE MORE BIRDS! CLICK CLICK CLICK BELOW!"
+    } else if (countB > countA) {
+        messageElement.innerText = "MAKE MORE BEES! CLICK CLICK CLICK BELOW!"
+    }
+}
+
+function updateTotalClicks() {
+    totalClicks = countA + countB;
+    totalClickCount.innerText = totalClicks
+    
+    allTimeCount.innerText = aTimeClicks + totalClicks;
+}
+
+
 document.getElementById('buttonA').addEventListener('click', async () => {
     await fetch('https://fiftyfiftybalance-hpejhuf2h3gjbhba.westus-01.azurewebsites.net/api/click/clickA', { method: 'POST' });
     updateCounters();
+    updateTotalClicks();
 });
 
 // Calculate and Update the Balance Bar
@@ -96,6 +115,7 @@ function updateBalanceProgress() {
 document.getElementById('buttonB').addEventListener('click', async () => {
     await fetch('https://fiftyfiftybalance-hpejhuf2h3gjbhba.westus-01.azurewebsites.net/api/click/clickB', { method: 'POST' });
     updateCounters();
+    updateTotalClicks();
 });
 
 let currentImageType = null;
@@ -175,9 +195,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 document.getElementById('buttonA').addEventListener('click', () => {
     checkBalance();
     updateCounters();
+    updateTotalClicks();
 });
 
 document.getElementById('buttonB').addEventListener('click', () => {
     checkBalance();
     updateCounters();
+    updateTotalClicks();
 });

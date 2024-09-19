@@ -10,7 +10,7 @@
 #totalClicks {
     background-color: #7EACB5; /* Bamboo green color */
     color: white; /* Ensure the text is visible against the background */
-    padding: 10px; /* Add some padding for better visibility */
+    padding: 5px; /* Add some padding for better visibility */
     border-radius: 5px; /* Optional: Rounded corners */
     font-size: 1.2em; /* Optional: Larger font size for better readability */
 }
