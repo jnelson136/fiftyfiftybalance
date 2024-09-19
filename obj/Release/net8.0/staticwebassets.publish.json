@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YWBuJeck+VKPMAx+2+XjSID50/DYmUTvWFXMu/fgV1o=",
+  "Hash": "qQAS6rJMf2NlU18MpRFJYt+IBUOCYZ4I1OA+zS59jjY=",
   "Source": "fiftyfiftybalance",
   "BasePath": "_content/fiftyfiftybalance",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\nelso\\OneDrive\\Desktop\\fiftyfiftybalance\\wwwroot\\bee.png",
+      "SourceId": "fiftyfiftybalance",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nelso\\OneDrive\\Desktop\\fiftyfiftybalance\\wwwroot\\",
+      "BasePath": "_content/fiftyfiftybalance",
+      "RelativePath": "bee.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\bee.png"
+    },
     {
       "Identity": "C:\\Users\\nelso\\OneDrive\\Desktop\\fiftyfiftybalance\\wwwroot\\birds.png",
       "SourceId": "fiftyfiftybalance",

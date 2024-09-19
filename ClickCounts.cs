@@ -8,6 +8,9 @@ namespace FiftyFifty
         private static string FilePath = "clickCounts.json";
         public int CountA { get; set; }
         public int CountB { get; set; }
+
+        public int AllTimeClicks { get; set; }
+
         public DateTime? TimerStart  {get; set; }
         public int LastElapsedTime { get; set; }
 

@@ -1,5 +1,7 @@
 let countA = 0;
 let countB = 0;
+let totalClicks = 0;
+let aTimeClicks = 0;
 
 let timer = 0;
 let intervalId = null;
@@ -10,10 +12,7 @@ const counterB = document.getElementById('counterB');
 const timerDisplay = document.getElementById('timer');
 const balanceProgress = document.getElementById('balanceProgress');
 const totalClickCount = document.getElementById('totalClickCount');
-
-document.addEventListener('DOMContentLoaded', async () => {
-    await updateCounters();
-});
+const allTimeCount = document.getElementById('allTimeCount');
 
 let connection = new signalR.HubConnectionBuilder()
     .withUrl("https://fiftyfiftybalance-hpejhuf2h3gjbhba.westus-01.azurewebsites.net/clickHub")
@@ -42,8 +41,9 @@ function stopTimer() {
     intervalId = null;
 }
 
-// Reset Everything on Page Load
-// updateCounters();
+function updateTotalClicks() {
+    document.getElementById('allTimeCount').innerText = totalClicks;
+}
 
 async function updateCounters() {
     let response = await fetch('https://fiftyfiftybalance-hpejhuf2h3gjbhba.westus-01.azurewebsites.net/api/click');
@@ -58,6 +58,8 @@ async function updateCounters() {
     counterA.innerText = data.countA;
     counterB.innerText = data.countB;
     totalClickCount.innerText = totalClicks;
+
+    allTimeCount.innerText = data.allTimeClicks;
 
     updateBalanceProgress();
 
@@ -157,9 +159,17 @@ function checkBalance() {
     }
 }
 
+document.addEventListener('click', async (e) => {
+    if(e.target !== document.getElementById('buttonA') && e.target !== document.getElementById('buttonB')) {
+        await fetch('https://fiftyfiftybalance-hpejhuf2h3gjbhba.westus-01.azurewebsites.net/api/click/increment-alltimeclicks', { method: 'POST' });
+        updateCounters();
+    }
+});
+
 document.addEventListener('DOMContentLoaded', async () => {
     await updateCounters();
     checkBalance();
+    updateTotalClicks();
 });
 
 document.getElementById('buttonA').addEventListener('click', () => {
@@ -171,12 +181,3 @@ document.getElementById('buttonB').addEventListener('click', () => {
     checkBalance();
     updateCounters();
 });
-
-
-// document.addEventListener('click', (event) => {
-//     // Update the total click count for all clicks, including those outside buttons
-//     if (event.target !== buttonA && event.target !== buttonB) {
-//         totalClicks++;
-//         totalClickCount.innerText = totalClicks;
-//     }
-// });

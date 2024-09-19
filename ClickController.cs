@@ -7,6 +7,14 @@ public class ClickController : ControllerBase
 {
     private static ClickCounts _clickCounts = ClickCounts.LoadFromFile();
 
+    [HttpPost("increment-alltimeclicks")]
+    public IActionResult IncrementAllTimeClicks()
+    {
+        _clickCounts.AllTimeClicks += 1;
+        _clickCounts.SaveToFile();
+        return Ok(_clickCounts);
+    }
+
     [HttpPost("clickA")]
     public IActionResult IncrementClickA()
     {
