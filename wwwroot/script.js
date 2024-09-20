@@ -1,10 +1,13 @@
 let countA = 0;
 let countB = 0;
 let totalClicks = 0;
-let aTimeClicks = 0;
+let allTimeClicks = 0;
 
 let timer = 0;
 let intervalId = null;
+
+const birdThreshold = 500;
+const beeThreshold = 500;
 
 // Grab the Elements
 const counterA = document.getElementById('counterA');
@@ -13,6 +16,11 @@ const timerDisplay = document.getElementById('timer');
 const balanceProgress = document.getElementById('balanceProgress');
 const totalClickCount = document.getElementById('totalClickCount');
 const allTimeCount = document.getElementById('allTimeCount');
+
+const birdEnthusiast = document.getElementById('birdEnthusiast');
+const beeLover = document.getElementById('beeLover');
+const birdIcon = document.getElementById('birdIcon');
+const beeIcon = document.getElementById('beeIcon');
 
 let connection = new signalR.HubConnectionBuilder()
     .withUrl("https://fiftyfiftybalance-hpejhuf2h3gjbhba.westus-01.azurewebsites.net/clickHub")
@@ -27,6 +35,33 @@ connection.on("RecieveClickCounts", (counts) => {
     allTimeClicks = counts.AllTimeClicks;
     updateCounters(); // Update the UI with the new counts
 });
+
+document.addEventListener('DOMContentLoaded', async () => {
+    await updateCounters();
+    updateTotalClicks();
+    checkBalance();
+    updateAchievements();
+});
+
+function updateAchievements() {
+    if (countA >= birdThreshold) {
+        birdEnthusiast.classList.add('unlocked');
+        birdEnthusiast.classList.remove('locked');
+
+        birdIcon.src = 'bird-color.png';
+    } else {
+        birdEnthusiast.classList.add('locked');
+    }
+
+    if (countB >= beeThreshold) {
+        beeLover.classList.add('unlocked');
+        beeLover.classList.remove('locked');
+
+        beeIcon.src = 'bee-color.png';
+    } else {
+        beeLover.classList.add('locked');
+    }
+}
 
 // Start Timer
 function startTimer() {
@@ -47,21 +82,31 @@ async function updateCounters() {
     let response = await fetch('https://fiftyfiftybalance-hpejhuf2h3gjbhba.westus-01.azurewebsites.net/api/click');
     let data = await response.json();
 
-    console.log(data);
+    console.log(data.allTimeClicks);
 
     countA = data.countA;
     countB = data.countB;
     timer = data.timerValue
-    aTimeClicks = data.allTimeClicks;
+    allTimeClicks = data.allTimeClicks;
+
+    totalClicks = countA + countB;
 
     counterA.innerText = data.countA;
     counterB.innerText = data.countB;
+    allTimeCount.innerText = allTimeClicks + totalClicks;
+
+    totalClickCount.innerText = totalClicks;
+    
 
     updateTotalClicks();
 
     updateBalanceProgress();
 
     updateMessage();
+
+    checkBalance();
+
+    updateAchievements();
 
     if (data.countA === data.countB) {
         if (!intervalId) startTimer();
@@ -79,6 +124,8 @@ function updateMessage() {
         messageElement.innerText = "MAKE MORE BIRDS! CLICK CLICK CLICK BELOW!"
     } else if (countB > countA) {
         messageElement.innerText = "MAKE MORE BEES! CLICK CLICK CLICK BELOW!"
+    } else if (countA == countB) {
+        messageElement.innerText = "MAKE MORE MAKE MORE!"
     }
 }
 
@@ -86,7 +133,6 @@ function updateTotalClicks() {
     totalClicks = countA + countB;
     totalClickCount.innerText = totalClicks
     
-    allTimeCount.innerText = aTimeClicks + totalClicks;
 }
 
 
@@ -94,6 +140,14 @@ document.getElementById('buttonA').addEventListener('click', async () => {
     await fetch('https://fiftyfiftybalance-hpejhuf2h3gjbhba.westus-01.azurewebsites.net/api/click/clickA', { method: 'POST' });
     updateCounters();
     updateTotalClicks();
+    updateAchievements();
+});
+
+document.getElementById('buttonB').addEventListener('click', async () => {
+    await fetch('https://fiftyfiftybalance-hpejhuf2h3gjbhba.westus-01.azurewebsites.net/api/click/clickB', { method: 'POST' });
+    updateCounters();
+    updateTotalClicks();
+    updateAchievements();
 });
 
 // Calculate and Update the Balance Bar
@@ -112,11 +166,6 @@ function updateBalanceProgress() {
     balanceProgress.innerText = `${balancePercentage}% Balanced`;
 }
 
-document.getElementById('buttonB').addEventListener('click', async () => {
-    await fetch('https://fiftyfiftybalance-hpejhuf2h3gjbhba.westus-01.azurewebsites.net/api/click/clickB', { method: 'POST' });
-    updateCounters();
-    updateTotalClicks();
-});
 
 let currentImageType = null;
 
@@ -175,7 +224,7 @@ function checkBalance() {
         currentImageType = 'bird';
     } else if (countB > countA - 1 && currentImageType !== 'bee') {
         updateParticles('bee');
-        currentImageType = 'bee;'
+        currentImageType = 'bee';
     }
 }
 
@@ -183,23 +232,6 @@ document.addEventListener('click', async (e) => {
     if(e.target !== document.getElementById('buttonA') && e.target !== document.getElementById('buttonB')) {
         await fetch('https://fiftyfiftybalance-hpejhuf2h3gjbhba.westus-01.azurewebsites.net/api/click/increment-alltimeclicks', { method: 'POST' });
         updateCounters();
+        updateTotalClicks();
     }
-});
-
-document.addEventListener('DOMContentLoaded', async () => {
-    await updateCounters();
-    checkBalance();
-    updateTotalClicks();
-});
-
-document.getElementById('buttonA').addEventListener('click', () => {
-    checkBalance();
-    updateCounters();
-    updateTotalClicks();
-});
-
-document.getElementById('buttonB').addEventListener('click', () => {
-    checkBalance();
-    updateCounters();
-    updateTotalClicks();
 });

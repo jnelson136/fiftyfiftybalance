@@ -21,6 +21,7 @@ body, html {
     padding: 0;
     overflow: hidden;
     background-color: #7EACB5; /* For dark background */
+    user-select: none;
 }
 
 .content {
@@ -37,4 +38,38 @@ body, html {
 
 .buttons-bamboo {
     background-color: #9BBA9D;
+}
+
+#achievementBar {
+    background-color: #7EACB5 !important;
+    z-index: -5;
+}
+
+.achievement {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #e0e0e0; /* Grey background when locked */
+    border-radius: 5px;
+    margin: 0 20px;
+}
+
+.achievement.unlocked {
+    background-color: #d4edda; /* Light green when unlocked */
+    color: #155724;
+}
+
+.achievement-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.achievement.locked img {
+    filter: grayscale(100%); /* Grey out icon */
+    opacity: 0.6; /* Reduce opacity for locked state */
+}
+
+.achievement.unlocked img {
+    filter: none; /* Remove grey filter when unlocked */
 }

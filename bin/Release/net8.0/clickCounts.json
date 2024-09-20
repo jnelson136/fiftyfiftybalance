@@ -1,1 +1,7 @@
-{"CountA":4,"CountB":3,"TimerStart":null,"LastElapsedTime":6}
+{
+    "CountA": 0,
+    "CountB": 0,
+    "AllTimeClicks": 0,
+    "TimerStart": null,
+    "LastElapsedTime": 0
+}
