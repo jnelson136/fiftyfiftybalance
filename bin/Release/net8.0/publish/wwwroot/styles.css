@@ -73,3 +73,35 @@ body, html {
 .achievement.unlocked img {
     filter: none; /* Remove grey filter when unlocked */
 }
+
+#boostContainer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#activateBoost {
+    padding: 10px 20px;
+    background-color: #9BBA9D;
+    color: white;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 0.5; /* Initially faded out */
+    transition: opacity 0.3s;
+}
+
+#activateBoost.enabled {
+    opacity: 1; /* Fully visible when enabled */
+    cursor: pointer;
+}
+
+#activateBoost.active {
+    animation: glowing 1s infinite;
+}
+
+@keyframes glowing {
+    0% { box-shadow: 0 0 5px #9BBA9D; }
+    50% { box-shadow: 0 0 20px #9BBA9D; }
+    100% { box-shadow: 0 0 5px #9BBA9D; }
+}

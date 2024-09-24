@@ -93,7 +93,7 @@ async function updateCounters() {
 
     counterA.innerText = data.countA;
     counterB.innerText = data.countB;
-    allTimeCount.innerText = allTimeClicks + totalClicks;
+    allTimeCount.innerText = allTimeClicks;
 
     totalClickCount.innerText = totalClicks;
     
